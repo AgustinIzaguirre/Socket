@@ -64,17 +64,17 @@ main(const int argc, const char **argv) {
     // // no tenemos nada que leer de stdin
     // close(0);
 
-     const char       *err_msg = NULL;
+     const char       *errorMessage = NULL;
     // selector_status   ss      = SELECTOR_SUCCESS;
     // fd_selector selector      = NULL;
 
     struct sockaddr_in addr;
     memset(&addr, 0, sizeof(addr));
     addr.sin_family      = AF_INET;
-    addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    addr.sin_addr.s_addr = htonl(INADDR_ANY);//filter ips
     addr.sin_port        = htons(pop3Port);
 
-    const int server = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    const int server = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);//stream using TCP
     if(server < 0) {
         //err_msg = "unable to create socket";
        // goto finally;
